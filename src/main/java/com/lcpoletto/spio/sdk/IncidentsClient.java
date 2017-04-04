@@ -37,6 +37,7 @@ public class IncidentsClient extends SpioClient {
 
     public List<Incident> search(final String pageId, final String query) {
         final String path = String.format(PATH, pageId, "");
+        return null;
     }
 
     /*

@@ -1,5 +1,7 @@
 package com.lcpoletto.spio.sdk.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -14,19 +16,19 @@ import java.util.List;
 public class Page implements Serializable {
 
     @XmlElement(name = "allow_webhook_subscribers")
-    private boolean allowWebhookSubscribers;
+    private Boolean allowWebhookSubscribers;
 
     @XmlElement(name = "allow_email_subscribers")
-    private boolean allowEmailSubscribers;
+    private Boolean allowEmailSubscribers;
 
     @XmlElement(name = "allow_incident_subscribers")
-    private boolean allowIncidentSubscribers;
+    private Boolean allowIncidentSubscribers;
 
     @XmlElement(name = "allow_page_subscribers")
-    private boolean allowPageSubscribers;
+    private Boolean allowPageSubscribers;
 
     @XmlElement(name = "allow_sms_subscribers")
-    private boolean allowSmsSubscribers;
+    private Boolean allowSmsSubscribers;
 
     @XmlElement(name = "created_at")
     private Date created;
@@ -68,10 +70,10 @@ public class Page implements Serializable {
     private String pageDescription;
 
     @XmlElement(name = "activity_score")
-    private int activityScore;
+    private Integer activityScore;
 
     @XmlElement(name = "hidden_from_search")
-    private boolean hiddenFromSearch;
+    private Boolean hiddenFromSearch;
 
     @XmlElement(name = "notifications_from_email")
     private String notificationsFromEmail;
@@ -95,7 +97,7 @@ public class Page implements Serializable {
     private String supportUrl;
 
     @XmlElement(name = "viewers_must_be_team_members")
-    private boolean membersOnly;
+    private Boolean membersOnly;
 
     @XmlElement(name = "favicon_logo")
     private Logo favicon;
@@ -115,59 +117,55 @@ public class Page implements Serializable {
     private String subdomain;
     private String headline;
 
-    public boolean isAllowEmailSubscribers() {
+    /*
+     * GETTERS AND SETTERS
+     */
+
+    public Boolean getAllowWebhookSubscribers() {
+        return allowWebhookSubscribers;
+    }
+
+    public void setAllowWebhookSubscribers(final Boolean allowWebhookSubscribers) {
+        this.allowWebhookSubscribers = allowWebhookSubscribers;
+    }
+
+    public Boolean getAllowEmailSubscribers() {
         return allowEmailSubscribers;
     }
 
-    public void setAllowEmailSubscribers(boolean allowEmailSubscribers) {
+    public void setAllowEmailSubscribers(final Boolean allowEmailSubscribers) {
         this.allowEmailSubscribers = allowEmailSubscribers;
     }
 
-    public boolean isAllowIncidentSubscribers() {
+    public Boolean getAllowIncidentSubscribers() {
         return allowIncidentSubscribers;
     }
 
-    public void setAllowIncidentSubscribers(boolean allowIncidentSubscribers) {
+    public void setAllowIncidentSubscribers(final Boolean allowIncidentSubscribers) {
         this.allowIncidentSubscribers = allowIncidentSubscribers;
     }
 
-    public boolean isAllowPageSubscribers() {
+    public Boolean getAllowPageSubscribers() {
         return allowPageSubscribers;
     }
 
-    public void setAllowPageSubscribers(boolean allowPageSubscribers) {
+    public void setAllowPageSubscribers(final Boolean allowPageSubscribers) {
         this.allowPageSubscribers = allowPageSubscribers;
     }
 
-    public boolean isAllowSmsSubscribers() {
+    public Boolean getAllowSmsSubscribers() {
         return allowSmsSubscribers;
     }
 
-    public void setAllowSmsSubscribers(boolean allowSmsSubscribers) {
+    public void setAllowSmsSubscribers(final Boolean allowSmsSubscribers) {
         this.allowSmsSubscribers = allowSmsSubscribers;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     public Date getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(final Date created) {
         this.created = created;
     }
 
@@ -175,7 +173,7 @@ public class Page implements Serializable {
         return cssBodyBackgroundColor;
     }
 
-    public void setCssBodyBackgroundColor(String cssBodyBackgroundColor) {
+    public void setCssBodyBackgroundColor(final String cssBodyBackgroundColor) {
         this.cssBodyBackgroundColor = cssBodyBackgroundColor;
     }
 
@@ -183,7 +181,7 @@ public class Page implements Serializable {
         return cssFontColor;
     }
 
-    public void setCssFontColor(String cssFontColor) {
+    public void setCssFontColor(final String cssFontColor) {
         this.cssFontColor = cssFontColor;
     }
 
@@ -191,7 +189,7 @@ public class Page implements Serializable {
         return cssGreens;
     }
 
-    public void setCssGreens(String cssGreens) {
+    public void setCssGreens(final String cssGreens) {
         this.cssGreens = cssGreens;
     }
 
@@ -199,7 +197,7 @@ public class Page implements Serializable {
         return cssLightFontColor;
     }
 
-    public void setCssLightFontColor(String cssLightFontColor) {
+    public void setCssLightFontColor(final String cssLightFontColor) {
         this.cssLightFontColor = cssLightFontColor;
     }
 
@@ -207,7 +205,7 @@ public class Page implements Serializable {
         return cssOranges;
     }
 
-    public void setCssOranges(String cssOranges) {
+    public void setCssOranges(final String cssOranges) {
         this.cssOranges = cssOranges;
     }
 
@@ -215,7 +213,7 @@ public class Page implements Serializable {
         return cssReds;
     }
 
-    public void setCssReds(String cssReds) {
+    public void setCssReds(final String cssReds) {
         this.cssReds = cssReds;
     }
 
@@ -223,151 +221,15 @@ public class Page implements Serializable {
         return cssYellows;
     }
 
-    public void setCssYellows(String cssYellows) {
+    public void setCssYellows(final String cssYellows) {
         this.cssYellows = cssYellows;
-    }
-
-    public String getDomain() {
-        return domain;
-    }
-
-    public void setDomain(String domain) {
-        this.domain = domain;
-    }
-
-    public boolean isHiddenFromSearch() {
-        return hiddenFromSearch;
-    }
-
-    public void setHiddenFromSearch(boolean hiddenFromSearch) {
-        this.hiddenFromSearch = hiddenFromSearch;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getLayout() {
-        return layout;
-    }
-
-    public void setLayout(String layout) {
-        this.layout = layout;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNotificationsFromEmail() {
-        return notificationsFromEmail;
-    }
-
-    public void setNotificationsFromEmail(String notificationsFromEmail) {
-        this.notificationsFromEmail = notificationsFromEmail;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getSubdomain() {
-        return subdomain;
-    }
-
-    public void setSubdomain(String subdomain) {
-        this.subdomain = subdomain;
-    }
-
-    public String getTimeZone() {
-        return timeZone;
-    }
-
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
-    }
-
-    public String getTwitterUsername() {
-        return twitterUsername;
-    }
-
-    public void setTwitterUsername(String twitterUsername) {
-        this.twitterUsername = twitterUsername;
-    }
-
-    public Date getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(Date updated) {
-        this.updated = updated;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public Logo getHeroCover() {
-        return heroCover;
-    }
-
-    public void setHeroCover(Logo heroCover) {
-        this.heroCover = heroCover;
-    }
-
-    public Logo getTransactional() {
-        return transactional;
-    }
-
-    public void setTransactional(Logo transactional) {
-        this.transactional = transactional;
-    }
-
-    public String getBranding() {
-        return branding;
-    }
-
-    public void setBranding(String branding) {
-        this.branding = branding;
-    }
-
-    public String getSupportUrl() {
-        return supportUrl;
-    }
-
-    public void setSupportUrl(String supportUrl) {
-        this.supportUrl = supportUrl;
-    }
-
-    public boolean isAllowWebhookSubscribers() {
-        return allowWebhookSubscribers;
-    }
-
-    public void setAllowWebhookSubscribers(boolean allowWebhookSubscribers) {
-        this.allowWebhookSubscribers = allowWebhookSubscribers;
     }
 
     public String getCssBorderColor() {
         return cssBorderColor;
     }
 
-    public void setCssBorderColor(String cssBorderColor) {
+    public void setCssBorderColor(final String cssBorderColor) {
         this.cssBorderColor = cssBorderColor;
     }
 
@@ -375,7 +237,7 @@ public class Page implements Serializable {
         return cssGraphColor;
     }
 
-    public void setCssGraphColor(String cssGraphColor) {
+    public void setCssGraphColor(final String cssGraphColor) {
         this.cssGraphColor = cssGraphColor;
     }
 
@@ -383,7 +245,7 @@ public class Page implements Serializable {
         return cssLinkColor;
     }
 
-    public void setCssLinkColor(String cssLinkColor) {
+    public void setCssLinkColor(final String cssLinkColor) {
         this.cssLinkColor = cssLinkColor;
     }
 
@@ -391,7 +253,7 @@ public class Page implements Serializable {
         return cssBlues;
     }
 
-    public void setCssBlues(String cssBlues) {
+    public void setCssBlues(final String cssBlues) {
         this.cssBlues = cssBlues;
     }
 
@@ -399,31 +261,87 @@ public class Page implements Serializable {
         return pageDescription;
     }
 
-    public void setPageDescription(String pageDescription) {
+    public void setPageDescription(final String pageDescription) {
         this.pageDescription = pageDescription;
     }
 
-    public int getActivityScore() {
+    public Integer getActivityScore() {
         return activityScore;
     }
 
-    public void setActivityScore(int activityScore) {
+    public void setActivityScore(final Integer activityScore) {
         this.activityScore = activityScore;
     }
 
-    public String getHeadline() {
-        return headline;
+    public Boolean getHiddenFromSearch() {
+        return hiddenFromSearch;
     }
 
-    public void setHeadline(String headline) {
-        this.headline = headline;
+    public void setHiddenFromSearch(final Boolean hiddenFromSearch) {
+        this.hiddenFromSearch = hiddenFromSearch;
     }
 
-    public boolean isMembersOnly() {
+    public String getNotificationsFromEmail() {
+        return notificationsFromEmail;
+    }
+
+    public void setNotificationsFromEmail(final String notificationsFromEmail) {
+        this.notificationsFromEmail = notificationsFromEmail;
+    }
+
+    public String getTimeZone() {
+        return timeZone;
+    }
+
+    public void setTimeZone(final String timeZone) {
+        this.timeZone = timeZone;
+    }
+
+    public String getTwitterUsername() {
+        return twitterUsername;
+    }
+
+    public void setTwitterUsername(final String twitterUsername) {
+        this.twitterUsername = twitterUsername;
+    }
+
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(final Date updated) {
+        this.updated = updated;
+    }
+
+    public Logo getHeroCover() {
+        return heroCover;
+    }
+
+    public void setHeroCover(final Logo heroCover) {
+        this.heroCover = heroCover;
+    }
+
+    public Logo getTransactional() {
+        return transactional;
+    }
+
+    public void setTransactional(final Logo transactional) {
+        this.transactional = transactional;
+    }
+
+    public String getSupportUrl() {
+        return supportUrl;
+    }
+
+    public void setSupportUrl(final String supportUrl) {
+        this.supportUrl = supportUrl;
+    }
+
+    public Boolean getMembersOnly() {
         return membersOnly;
     }
 
-    public void setMembersOnly(boolean membersOnly) {
+    public void setMembersOnly(final Boolean membersOnly) {
         this.membersOnly = membersOnly;
     }
 
@@ -431,7 +349,7 @@ public class Page implements Serializable {
         return favicon;
     }
 
-    public void setFavicon(Logo favicon) {
+    public void setFavicon(final Logo favicon) {
         this.favicon = favicon;
     }
 
@@ -439,7 +357,95 @@ public class Page implements Serializable {
         return ipRestrictions;
     }
 
-    public void setIpRestrictions(List<String> ipRestrictions) {
+    public void setIpRestrictions(final List<String> ipRestrictions) {
         this.ipRestrictions = ipRestrictions;
+    }
+
+    public String getBranding() {
+        return branding;
+    }
+
+    public void setBranding(final String branding) {
+        this.branding = branding;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(final String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(final String country) {
+        this.country = country;
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(final String domain) {
+        this.domain = domain;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(final String id) {
+        this.id = id;
+    }
+
+    public String getLayout() {
+        return layout;
+    }
+
+    public void setLayout(final String layout) {
+        this.layout = layout;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(final String name) {
+        this.name = name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(final String url) {
+        this.url = url;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(final String state) {
+        this.state = state;
+    }
+
+    public String getSubdomain() {
+        return subdomain;
+    }
+
+    public void setSubdomain(final String subdomain) {
+        this.subdomain = subdomain;
+    }
+
+    public String getHeadline() {
+        return headline;
+    }
+
+    public void setHeadline(final String headline) {
+        this.headline = headline;
     }
 }

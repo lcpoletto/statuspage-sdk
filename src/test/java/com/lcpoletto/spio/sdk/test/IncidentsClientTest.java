@@ -35,4 +35,6 @@ public class IncidentsClientTest {
         Assert.assertNotNull(incidents);
         Assert.assertEquals(incidents.size(), 0);
     }
+
+
 }

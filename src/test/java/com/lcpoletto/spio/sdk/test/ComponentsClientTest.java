@@ -21,6 +21,9 @@ public class ComponentsClientTest {
         final List<Component> components = CLIENT.get(PAGE_ID);
         Assert.assertNotNull(components);
         Assert.assertNotEquals(components.size(), 0);
+        components.forEach(component -> {
+            Assert.assertNotNull(component.getPageId());
+        });
     }
 
     @Test
@@ -51,11 +54,19 @@ public class ComponentsClientTest {
     @Test
     public void testDeleteComponent() {
         final Component component = createComponent();
+        final String createdId = component.getId();
         try {
             CLIENT.delete(component);
         } catch (Throwable t) {
+            t.printStackTrace();
             Assert.fail("Delete should not throw any error.");
         }
+        final List<Component> components = CLIENT.get(PAGE_ID);
+        Assert.assertNotNull(components);
+        Assert.assertNotEquals(components.size(), 0);
+        components.forEach(found -> {
+            Assert.assertNotEquals(found.getId(), createdId);
+        });
     }
 
     /*

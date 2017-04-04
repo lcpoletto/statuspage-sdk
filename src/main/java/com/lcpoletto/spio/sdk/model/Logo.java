@@ -28,11 +28,15 @@ public class Logo implements Serializable {
 
     private String url;
 
+    /*
+     * GETTERS AND SETTERS
+     */
+
     public String getNormalUrl() {
         return normalUrl;
     }
 
-    public void setNormalUrl(String normalUrl) {
+    public void setNormalUrl(final String normalUrl) {
         this.normalUrl = normalUrl;
     }
 
@@ -40,7 +44,7 @@ public class Logo implements Serializable {
         return originalUrl;
     }
 
-    public void setOriginalUrl(String originalUrl) {
+    public void setOriginalUrl(final String originalUrl) {
         this.originalUrl = originalUrl;
     }
 
@@ -48,7 +52,7 @@ public class Logo implements Serializable {
         return retinaUrl;
     }
 
-    public void setRetinaUrl(String retinaUrl) {
+    public void setRetinaUrl(final String retinaUrl) {
         this.retinaUrl = retinaUrl;
     }
 
@@ -56,7 +60,7 @@ public class Logo implements Serializable {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(final String size) {
         this.size = size;
     }
 
@@ -64,7 +68,7 @@ public class Logo implements Serializable {
         return updated;
     }
 
-    public void setUpdated(Date updated) {
+    public void setUpdated(final Date updated) {
         this.updated = updated;
     }
 
@@ -72,7 +76,7 @@ public class Logo implements Serializable {
         return url;
     }
 
-    public void setUrl(String url) {
+    public void setUrl(final String url) {
         this.url = url;
     }
 }

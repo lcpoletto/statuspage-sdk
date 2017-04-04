@@ -20,7 +20,16 @@ public class PagesClient extends SpioClient {
         return instance;
     }
 
-    public final Page get(final String id) {
+    public Page get(final String id) {
         return get(String.format(PATH, id), Page.class);
+    }
+
+    /**
+     * Updates a page, only mutable fields can be changed, details: http://doers.statuspage.io/api/v1/page_profile/.
+     * @param page page to be updated
+     * @return updated page
+     */
+    public Page patch(final Page page) {
+        return patch(String.format(PATH, page.getId()), page, Page.class);
     }
 }

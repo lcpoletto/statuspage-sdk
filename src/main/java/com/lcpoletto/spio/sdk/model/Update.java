@@ -34,7 +34,7 @@ public class Update implements Serializable {
     private Date updated;
 
     @XmlElement(name = "wants_twitter_update")
-    private boolean updateTwitter;
+    private Boolean updateTwitter;
 
     // TODO: Verify if it's possible to have the actual component here
     @XmlElement(name = "affected_components")
@@ -43,11 +43,15 @@ public class Update implements Serializable {
     @XmlElement(name = "custom_tweet")
     private String customTweet;
 
+    /*
+     * GETTERS AND SETTERS
+     */
+
     public String getBody() {
         return body;
     }
 
-    public void setBody(String body) {
+    public void setBody(final String body) {
         this.body = body;
     }
 
@@ -55,7 +59,7 @@ public class Update implements Serializable {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(final String status) {
         this.status = status;
     }
 
@@ -63,7 +67,7 @@ public class Update implements Serializable {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 
@@ -71,7 +75,7 @@ public class Update implements Serializable {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(final Date created) {
         this.created = created;
     }
 
@@ -79,7 +83,7 @@ public class Update implements Serializable {
         return display;
     }
 
-    public void setDisplay(Date display) {
+    public void setDisplay(final Date display) {
         this.display = display;
     }
 
@@ -87,7 +91,7 @@ public class Update implements Serializable {
         return incidentId;
     }
 
-    public void setIncidentId(String incidentId) {
+    public void setIncidentId(final String incidentId) {
         this.incidentId = incidentId;
     }
 
@@ -95,7 +99,7 @@ public class Update implements Serializable {
         return twitterUpdated;
     }
 
-    public void setTwitterUpdated(Date twitterUpdated) {
+    public void setTwitterUpdated(final Date twitterUpdated) {
         this.twitterUpdated = twitterUpdated;
     }
 
@@ -103,15 +107,15 @@ public class Update implements Serializable {
         return updated;
     }
 
-    public void setUpdated(Date updated) {
+    public void setUpdated(final Date updated) {
         this.updated = updated;
     }
 
-    public boolean isUpdateTwitter() {
+    public Boolean getUpdateTwitter() {
         return updateTwitter;
     }
 
-    public void setUpdateTwitter(boolean updateTwitter) {
+    public void setUpdateTwitter(final Boolean updateTwitter) {
         this.updateTwitter = updateTwitter;
     }
 
@@ -119,7 +123,7 @@ public class Update implements Serializable {
         return affectedComponents;
     }
 
-    public void setAffectedComponents(List<Map<String, String>> affectedComponents) {
+    public void setAffectedComponents(final List<Map<String, String>> affectedComponents) {
         this.affectedComponents = affectedComponents;
     }
 
@@ -127,7 +131,7 @@ public class Update implements Serializable {
         return customTweet;
     }
 
-    public void setCustomTweet(String customTweet) {
+    public void setCustomTweet(final String customTweet) {
         this.customTweet = customTweet;
     }
 }

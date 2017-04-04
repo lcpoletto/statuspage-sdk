@@ -2,11 +2,13 @@ package com.lcpoletto.spio.sdk.filters;
 
 import javax.ws.rs.client.ClientRequestContext;
 import javax.ws.rs.client.ClientRequestFilter;
+import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 
 /**
  * Created by poletto on 3/31/2017.
  */
+@Provider
 public class SpioClientRequestFilter implements ClientRequestFilter {
 
     @Override

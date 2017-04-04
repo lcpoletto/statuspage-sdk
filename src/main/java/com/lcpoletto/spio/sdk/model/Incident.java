@@ -8,7 +8,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by poletto on 4/1/2017.
@@ -16,7 +15,7 @@ import java.util.Map;
 @XmlRootElement
 public class Incident implements Serializable {
 
-    private boolean backfilled;
+    private Boolean backfilled;
     private String id;
     private Impact impact;
     private String name;
@@ -46,13 +45,13 @@ public class Incident implements Serializable {
     private String postmortemLastUpdated;
 
     @XmlElement(name = "postmortem_ignored")
-    private boolean postmortemIgnored;
+    private Boolean postmortemIgnored;
 
     @XmlElement(name = "postmortem_notified_subscribers")
-    private boolean postmortemNotifiedSubscribers;
+    private Boolean postmortemNotifiedSubscribers;
 
     @XmlElement(name = "postmortem_notified_twitter")
-    private boolean postmortemNotifiedTwitter;
+    private Boolean postmortemNotifiedTwitter;
 
     @XmlElement(name = "postmortem_published_at")
     private Date postmortemPublished;
@@ -61,16 +60,16 @@ public class Incident implements Serializable {
     private Date resolved;
 
     @XmlElement(name = "scheduled_auto_in_progress")
-    private boolean scheduledInProgress;
+    private Boolean scheduledInProgress;
 
     @XmlElement(name = "scheduled_auto_completed")
-    private boolean scheduledComplete;
+    private Boolean scheduledComplete;
 
     @XmlElement(name = "scheduled_for")
     private Date scheduledFor;
 
     @XmlElement(name = "scheduled_remind_prior")
-    private boolean scheduledRemindPrior;
+    private Boolean scheduledRemindPrior;
 
     @XmlElement(name = "scheduled_reminded_at")
     private Date scheduledReminded;
@@ -81,11 +80,15 @@ public class Incident implements Serializable {
     @XmlElement(name = "updated_at")
     private Date updated;
 
-    public boolean isBackfilled() {
+    /*
+     * GETTERS AND SETTERS
+     */
+
+    public Boolean getBackfilled() {
         return backfilled;
     }
 
-    public void setBackfilled(boolean backfilled) {
+    public void setBackfilled(final Boolean backfilled) {
         this.backfilled = backfilled;
     }
 
@@ -93,7 +96,7 @@ public class Incident implements Serializable {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 
@@ -101,7 +104,7 @@ public class Incident implements Serializable {
         return impact;
     }
 
-    public void setImpact(Impact impact) {
+    public void setImpact(final Impact impact) {
         this.impact = impact;
     }
 
@@ -109,7 +112,7 @@ public class Incident implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -117,7 +120,7 @@ public class Incident implements Serializable {
         return shortlink;
     }
 
-    public void setShortlink(String shortlink) {
+    public void setShortlink(final String shortlink) {
         this.shortlink = shortlink;
     }
 
@@ -125,15 +128,23 @@ public class Incident implements Serializable {
         return status;
     }
 
-    public void setStatus(IncidentStatus status) {
+    public void setStatus(final IncidentStatus status) {
         this.status = status;
+    }
+
+    public List<Component> getComponents() {
+        return components;
+    }
+
+    public void setComponents(final List<Component> components) {
+        this.components = components;
     }
 
     public Date getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(final Date created) {
         this.created = created;
     }
 
@@ -141,7 +152,7 @@ public class Incident implements Serializable {
         return impactOverride;
     }
 
-    public void setImpactOverride(Impact impactOverride) {
+    public void setImpactOverride(final Impact impactOverride) {
         this.impactOverride = impactOverride;
     }
 
@@ -149,7 +160,7 @@ public class Incident implements Serializable {
         return incidentUpdates;
     }
 
-    public void setIncidentUpdates(List<Update> incidentUpdates) {
+    public void setIncidentUpdates(final List<Update> incidentUpdates) {
         this.incidentUpdates = incidentUpdates;
     }
 
@@ -157,7 +168,7 @@ public class Incident implements Serializable {
         return monitoring;
     }
 
-    public void setMonitoring(Date monitoring) {
+    public void setMonitoring(final Date monitoring) {
         this.monitoring = monitoring;
     }
 
@@ -165,7 +176,7 @@ public class Incident implements Serializable {
         return pageId;
     }
 
-    public void setPageId(String pageId) {
+    public void setPageId(final String pageId) {
         this.pageId = pageId;
     }
 
@@ -173,7 +184,7 @@ public class Incident implements Serializable {
         return postmortemBody;
     }
 
-    public void setPostmortemBody(String postmortemBody) {
+    public void setPostmortemBody(final String postmortemBody) {
         this.postmortemBody = postmortemBody;
     }
 
@@ -181,31 +192,31 @@ public class Incident implements Serializable {
         return postmortemLastUpdated;
     }
 
-    public void setPostmortemLastUpdated(String postmortemLastUpdated) {
+    public void setPostmortemLastUpdated(final String postmortemLastUpdated) {
         this.postmortemLastUpdated = postmortemLastUpdated;
     }
 
-    public boolean isPostmortemIgnored() {
+    public Boolean getPostmortemIgnored() {
         return postmortemIgnored;
     }
 
-    public void setPostmortemIgnored(boolean postmortemIgnored) {
+    public void setPostmortemIgnored(final Boolean postmortemIgnored) {
         this.postmortemIgnored = postmortemIgnored;
     }
 
-    public boolean isPostmortemNotifiedSubscribers() {
+    public Boolean getPostmortemNotifiedSubscribers() {
         return postmortemNotifiedSubscribers;
     }
 
-    public void setPostmortemNotifiedSubscribers(boolean postmortemNotifiedSubscribers) {
+    public void setPostmortemNotifiedSubscribers(final Boolean postmortemNotifiedSubscribers) {
         this.postmortemNotifiedSubscribers = postmortemNotifiedSubscribers;
     }
 
-    public boolean isPostmortemNotifiedTwitter() {
+    public Boolean getPostmortemNotifiedTwitter() {
         return postmortemNotifiedTwitter;
     }
 
-    public void setPostmortemNotifiedTwitter(boolean postmortemNotifiedTwitter) {
+    public void setPostmortemNotifiedTwitter(final Boolean postmortemNotifiedTwitter) {
         this.postmortemNotifiedTwitter = postmortemNotifiedTwitter;
     }
 
@@ -213,7 +224,7 @@ public class Incident implements Serializable {
         return postmortemPublished;
     }
 
-    public void setPostmortemPublished(Date postmortemPublished) {
+    public void setPostmortemPublished(final Date postmortemPublished) {
         this.postmortemPublished = postmortemPublished;
     }
 
@@ -221,23 +232,23 @@ public class Incident implements Serializable {
         return resolved;
     }
 
-    public void setResolved(Date resolved) {
+    public void setResolved(final Date resolved) {
         this.resolved = resolved;
     }
 
-    public boolean isScheduledInProgress() {
+    public Boolean getScheduledInProgress() {
         return scheduledInProgress;
     }
 
-    public void setScheduledInProgress(boolean scheduledInProgress) {
+    public void setScheduledInProgress(final Boolean scheduledInProgress) {
         this.scheduledInProgress = scheduledInProgress;
     }
 
-    public boolean isScheduledComplete() {
+    public Boolean getScheduledComplete() {
         return scheduledComplete;
     }
 
-    public void setScheduledComplete(boolean scheduledComplete) {
+    public void setScheduledComplete(final Boolean scheduledComplete) {
         this.scheduledComplete = scheduledComplete;
     }
 
@@ -245,15 +256,15 @@ public class Incident implements Serializable {
         return scheduledFor;
     }
 
-    public void setScheduledFor(Date scheduledFor) {
+    public void setScheduledFor(final Date scheduledFor) {
         this.scheduledFor = scheduledFor;
     }
 
-    public boolean isScheduledRemindPrior() {
+    public Boolean getScheduledRemindPrior() {
         return scheduledRemindPrior;
     }
 
-    public void setScheduledRemindPrior(boolean scheduledRemindPrior) {
+    public void setScheduledRemindPrior(final Boolean scheduledRemindPrior) {
         this.scheduledRemindPrior = scheduledRemindPrior;
     }
 
@@ -261,7 +272,7 @@ public class Incident implements Serializable {
         return scheduledReminded;
     }
 
-    public void setScheduledReminded(Date scheduledReminded) {
+    public void setScheduledReminded(final Date scheduledReminded) {
         this.scheduledReminded = scheduledReminded;
     }
 
@@ -269,7 +280,7 @@ public class Incident implements Serializable {
         return scheduledUntil;
     }
 
-    public void setScheduledUntil(Date scheduledUntil) {
+    public void setScheduledUntil(final Date scheduledUntil) {
         this.scheduledUntil = scheduledUntil;
     }
 
@@ -277,15 +288,7 @@ public class Incident implements Serializable {
         return updated;
     }
 
-    public void setUpdated(Date updated) {
+    public void setUpdated(final Date updated) {
         this.updated = updated;
-    }
-
-    public List<Component> getComponents() {
-        return components;
-    }
-
-    public void setComponents(List<Component> components) {
-        this.components = components;
     }
 }

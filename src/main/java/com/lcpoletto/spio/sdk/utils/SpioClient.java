@@ -2,6 +2,7 @@ package com.lcpoletto.spio.sdk.utils;
 
 import com.lcpoletto.spio.sdk.config.SpioObjectMapperProvider;
 import com.lcpoletto.spio.sdk.filters.SpioClientRequestFilter;
+import com.lcpoletto.spio.sdk.filters.SpioClientResponseFilter;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.glassfish.jersey.jackson.JacksonFeature;
@@ -38,8 +39,9 @@ public abstract class SpioClient implements Serializable {
     }
 
     protected <T> T get(final String path, final Map<String, Object> queryParams, final GenericType<T> responseType) {
-
-
+        final WebTarget target = target(path);
+        queryParams.forEach(target::queryParam);
+        return target.request().get(responseType);
     }
 
     protected <T> T post(final String path, T data, final Class<T> responseType) {
@@ -47,7 +49,7 @@ public abstract class SpioClient implements Serializable {
         return target(path).request().post(entity, responseType);
     }
 
-    protected  <T> T patch(final String path, T data, final Class<T> responseType) {
+    protected <T> T patch(final String path, T data, final Class<T> responseType) {
         final Entity<T> entity = Entity.entity(data, MediaType.APPLICATION_JSON_TYPE);
         return target(path).request().method("PATCH", entity, responseType);
     }
@@ -67,6 +69,7 @@ public abstract class SpioClient implements Serializable {
         // Maybe we can use a header instead of this workaround
         config.property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true);
         config.register(SpioClientRequestFilter.class);
+        config.register(SpioClientResponseFilter.class);
         return ClientBuilder.newClient(config);
     }
 

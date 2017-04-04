@@ -23,5 +23,8 @@ public enum IncidentStatus implements Serializable {
     COMPLETED,
 
     @XmlEnumValue("resolved")
-    RESOLVED;
+    RESOLVED,
+
+    @XmlEnumValue("investigating")
+    INVESTIGATING;
 }

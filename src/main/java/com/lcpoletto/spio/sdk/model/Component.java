@@ -2,41 +2,58 @@ package com.lcpoletto.spio.sdk.model;
 
 import com.lcpoletto.spio.sdk.model.enums.ComponentStatus;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by poletto on 4/1/2017.
+ * <p>
+ * POJO representing a statupage.io component, fields annotated with {@link XmlElement} will be both serialized and
+ * de-serialized, properties that have {@link XmlElement} only on setters will be only de-serialized. This hybrid
+ * annotation approach was done to overcome statuspage.io sensitivity when receiving data to be updated.
+ * </p>
+ * <p>
+ * For more information: http://doers.statuspage.io/api/v1/components/
+ * </p>
+ *
+ * @author Luis Carlos Poletto
  */
-@XmlRootElement
+@XmlRootElement(name = "component")
+@XmlAccessorType(XmlAccessType.NONE)
 public class Component implements Serializable {
 
-    private String id;
+    @XmlElement
     private String name;
+
+    @XmlElement
     private String description;
-    private int position;
+
+    @XmlElement
     private ComponentStatus status;
-    private boolean showcase;
-
-    @XmlElement(name = "created_at")
-    private Date created;
-
-    @XmlElement(name = "updated_at")
-    private Date updated;
 
     @XmlElement(name = "group_id")
     private String groupId;
 
-    @XmlElement(name = "page_id")
+    private String id;
+    private Integer position;
+    private Boolean showcase;
+    private Date created;
+    private Date updated;
     private String pageId;
+
+    /*
+     * GETTERS AND SETTERS
+     */
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    @XmlElement
+    public void setId(final String id) {
         this.id = id;
     }
 
@@ -44,7 +61,7 @@ public class Component implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -52,23 +69,42 @@ public class Component implements Serializable {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
-    public int getPosition() {
+    public Integer getPosition() {
         return position;
     }
 
-    public void setPosition(int position) {
+    @XmlElement
+    public void setPosition(final Integer position) {
         this.position = position;
+    }
+
+    public ComponentStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(final ComponentStatus status) {
+        this.status = status;
+    }
+
+    public Boolean getShowcase() {
+        return showcase;
+    }
+
+    @XmlElement
+    public void setShowcase(final Boolean showcase) {
+        this.showcase = showcase;
     }
 
     public Date getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    @XmlElement(name = "created_at")
+    public void setCreated(final Date created) {
         this.created = created;
     }
 
@@ -76,7 +112,8 @@ public class Component implements Serializable {
         return updated;
     }
 
-    public void setUpdated(Date updated) {
+    @XmlElement(name = "updated_at")
+    public void setUpdated(final Date updated) {
         this.updated = updated;
     }
 
@@ -84,7 +121,7 @@ public class Component implements Serializable {
         return groupId;
     }
 
-    public void setGroupId(String groupId) {
+    public void setGroupId(final String groupId) {
         this.groupId = groupId;
     }
 
@@ -92,23 +129,8 @@ public class Component implements Serializable {
         return pageId;
     }
 
-    public void setPageId(String pageId) {
+    @XmlElement(name = "page_id")
+    public void setPageId(final String pageId) {
         this.pageId = pageId;
-    }
-
-    public boolean isShowcase() {
-        return showcase;
-    }
-
-    public void setShowcase(boolean showcase) {
-        this.showcase = showcase;
-    }
-
-    public ComponentStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(ComponentStatus status) {
-        this.status = status;
     }
 }
