@@ -39,8 +39,10 @@ public abstract class SpioClient implements Serializable {
     }
 
     protected <T> T get(final String path, final Map<String, Object> queryParams, final GenericType<T> responseType) {
-        final WebTarget target = target(path);
-        queryParams.forEach(target::queryParam);
+        WebTarget target = target(path);
+        for (final Map.Entry<String, Object> entry : queryParams.entrySet()) {
+            target = target.queryParam(entry.getKey(), entry.getValue());
+        }
         return target.request().get(responseType);
     }
 

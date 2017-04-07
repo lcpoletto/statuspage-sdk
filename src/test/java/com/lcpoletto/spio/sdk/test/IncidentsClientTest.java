@@ -36,5 +36,10 @@ public class IncidentsClientTest {
         Assert.assertEquals(incidents.size(), 0);
     }
 
-
+    @Test
+    public void testQuery() {
+        final List<Incident> incidents = CLIENT.search(PAGE_ID, "jenkins");
+        Assert.assertNotNull(incidents);
+        Assert.assertNotEquals(incidents.size(), 0);
+    }
 }

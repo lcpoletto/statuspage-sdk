@@ -21,6 +21,7 @@ public class Incident implements Serializable {
     private String name;
     private String shortlink;
     private IncidentStatus status;
+    private Highlight highlight;
     private List<Component> components;
 
     @XmlElement(name = "created_at")
@@ -290,5 +291,13 @@ public class Incident implements Serializable {
 
     public void setUpdated(final Date updated) {
         this.updated = updated;
+    }
+
+    public Highlight getHighlight() {
+        return highlight;
+    }
+
+    public void setHighlight(final Highlight highlight) {
+        this.highlight = highlight;
     }
 }

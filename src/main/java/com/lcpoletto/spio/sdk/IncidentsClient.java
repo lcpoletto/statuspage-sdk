@@ -4,6 +4,7 @@ import com.lcpoletto.spio.sdk.model.Incident;
 import com.lcpoletto.spio.sdk.utils.SpioClient;
 
 import javax.ws.rs.core.GenericType;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +38,7 @@ public class IncidentsClient extends SpioClient {
 
     public List<Incident> search(final String pageId, final String query) {
         final String path = String.format(PATH, pageId, "");
-        return null;
+        return get(path, Collections.singletonMap("q", query), new GenericType<List<Incident>>() {});
     }
 
     /*
@@ -46,7 +47,7 @@ public class IncidentsClient extends SpioClient {
 
     private List<Incident> get(final String pageId, final String subPath) {
         final String path = String.format(PATH, pageId, subPath);
-        return get(path, new GenericType<List<Incident>>(){});
+        return get(path, new GenericType<List<Incident>>() {});
     }
 
 }
