@@ -19,27 +19,27 @@ public class IncidentsClientTest {
     public void testGetAll() {
         final List<Incident> incidents = CLIENT.all(PAGE_ID);
         Assert.assertNotNull(incidents);
-        Assert.assertNotEquals(incidents.size(), 0);
+        Assert.assertNotEquals(0, incidents.size());
     }
 
     @Test
     public void testGetUnresolved() {
         final List<Incident> incidents = CLIENT.unresolved(PAGE_ID);
         Assert.assertNotNull(incidents);
-        Assert.assertEquals(incidents.size(), 0);
+        Assert.assertEquals(0, incidents.size());
     }
 
     @Test
     public void testGetScheduled() {
         final List<Incident> incidents = CLIENT.scheduled(PAGE_ID);
         Assert.assertNotNull(incidents);
-        Assert.assertEquals(incidents.size(), 0);
+        Assert.assertEquals(0, incidents.size());
     }
 
     @Test
     public void testQuery() {
         final List<Incident> incidents = CLIENT.search(PAGE_ID, "jenkins");
         Assert.assertNotNull(incidents);
-        Assert.assertNotEquals(incidents.size(), 0);
+        Assert.assertNotEquals(0, incidents.size());
     }
 }

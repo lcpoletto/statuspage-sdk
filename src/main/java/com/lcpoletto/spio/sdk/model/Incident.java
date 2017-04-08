@@ -3,6 +3,8 @@ package com.lcpoletto.spio.sdk.model;
 import com.lcpoletto.spio.sdk.model.enums.Impact;
 import com.lcpoletto.spio.sdk.model.enums.IncidentStatus;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -10,21 +12,34 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by poletto on 4/1/2017.
+ * <p>
+ * POJO representing a statupage.io incident, fields annotated with {@link XmlElement} will be both serialized and
+ * de-serialized, properties that have {@link XmlElement} only on setters will be only de-serialized. This hybrid
+ * annotation approach was done to overcome statuspage.io sensitivity when receiving data to be updated.
+ * </p>
+ * <p>
+ * For more information: http://doers.statuspage.io/api/v1/incidents/
+ * </p>
+ *
+ * @author Luis Carlos Poletto
  */
-@XmlRootElement
+@XmlRootElement(name = "incident")
+@XmlAccessorType(XmlAccessType.NONE)
 public class Incident implements Serializable {
 
     private Boolean backfilled;
     private String id;
     private Impact impact;
+
+    @XmlElement
     private String name;
     private String shortlink;
+
+    @XmlElement
     private IncidentStatus status;
     private Highlight highlight;
     private List<Component> components;
 
-    @XmlElement(name = "created_at")
     private Date created;
 
     @XmlElement(name = "impact_override")
@@ -80,6 +95,11 @@ public class Incident implements Serializable {
 
     @XmlElement(name = "updated_at")
     private Date updated;
+
+    private List<String> componentIds;
+    private Boolean updateTwitter;
+
+    private String message;
 
     /*
      * GETTERS AND SETTERS
@@ -145,6 +165,7 @@ public class Incident implements Serializable {
         return created;
     }
 
+    @XmlElement(name = "created_at")
     public void setCreated(final Date created) {
         this.created = created;
     }
@@ -299,5 +320,32 @@ public class Incident implements Serializable {
 
     public void setHighlight(final Highlight highlight) {
         this.highlight = highlight;
+    }
+
+    @XmlElement(name = "wants_twitter_update")
+    public Boolean getUpdateTwitter() {
+        return updateTwitter;
+    }
+
+    public void setUpdateTwitter(final Boolean updateTwitter) {
+        this.updateTwitter = updateTwitter;
+    }
+
+    @XmlElement
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(final String message) {
+        this.message = message;
+    }
+
+    @XmlElement(name = "component_ids")
+    public List<String> getComponentIds() {
+        return componentIds;
+    }
+
+    public void setComponentIds(final List<String> componentIds) {
+        this.componentIds = componentIds;
     }
 }

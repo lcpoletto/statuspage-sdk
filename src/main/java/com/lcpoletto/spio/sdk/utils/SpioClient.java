@@ -23,7 +23,6 @@ import java.util.Map;
 public abstract class SpioClient implements Serializable {
 
     private static final String SPIO_API = "https://api.statuspage.io/v1";
-
     private static final Client CLIENT = createClient();
 
     private String pageId;
